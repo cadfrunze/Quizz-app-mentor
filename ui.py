@@ -5,7 +5,7 @@ THEME_COLOR = "#375362"
 
 class InterfataQuizz:
     def __init__(self):
-        self.scor = 0
+        self.scor: int = 0
         self.ecran = Tk()
         image_true = PhotoImage(file='./images/true.png')
         image_false = PhotoImage(file='./images/false.png')
