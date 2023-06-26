@@ -11,7 +11,7 @@ for question in question_data:
 
 
 quiz = QuizBrain(question_bank)
-interfata_joc = InterfataQuizz()
+interfata_joc = InterfataQuizz(quizzer=quiz)
 # while quiz.still_has_questions():
 #     quiz.next_question()
 
