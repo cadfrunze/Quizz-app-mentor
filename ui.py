@@ -1,3 +1,4 @@
+# Creearea UI, conform cerintelor
 from tkinter import *
 from quiz_brain import QuizBrain
 from tkinter import messagebox
