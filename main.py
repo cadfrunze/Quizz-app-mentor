@@ -1,3 +1,5 @@
+#  Mecanismul de generare a intrebarilor + verificare raspunsuri a fost preluat + modificat in UI (tkinter)
+#   din lectia 17
 from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain

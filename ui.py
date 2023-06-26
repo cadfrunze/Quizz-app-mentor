@@ -7,6 +7,7 @@ THEME_COLOR = "#375362"
 
 
 class InterfataQuizz:
+    """Interfata pt joc + functionalitatile"""
     def __init__(self, quizzer: QuizBrain):
         self.scorul_interfata: int = 0
         self.len_lista: int = 0
@@ -31,6 +32,7 @@ class InterfataQuizz:
         self.ecran.mainloop()
 
     def generate_question(self):
+        """Generare intrebare + verificare len(quiz) din clasa Quizzbrain"""
         self.check_len()
         self.button_true.config(command=self.true_button)
         self.button_false.config(command=self.false_button)
@@ -38,6 +40,7 @@ class InterfataQuizz:
         self.canvas.itemconfig(self.textul, text=q_text)
 
     def change_background(self, check: bool, count: int):
+        """Functie schimbare culoare background, depinde de raspuns"""
         self.button_true.config(command=self.button_pass)
         self.button_false.config(command=self.button_pass)
         self.ecran.config(bg=THEME_COLOR)
@@ -55,6 +58,7 @@ class InterfataQuizz:
             self.cancel_after = self.ecran.after(500, self.change_background, check, count - 1)
 
     def true_button(self):
+        """Functie pt butonul 'True'"""
         self.quiz.check_answer(user_answer='true')
         self.scorul.config(text=f'Scorul: {self.quiz.score}')
         if self.quiz.score > self.scorul_interfata:
@@ -66,6 +70,7 @@ class InterfataQuizz:
         self.generate_question()
 
     def false_button(self):
+        """Functie pt butonul 'False'"""
         self.quiz.check_answer(user_answer='false')
         self.scorul.config(text=f'Scorul: {self.quiz.score}')
         if self.quiz.score > self.scorul_interfata:
@@ -77,9 +82,11 @@ class InterfataQuizz:
         self.generate_question()
 
     def button_pass(self):
+        """Daca userul incearca sa apese simultan pe oricare din butoane"""
         pass
 
     def check_len(self):
+        """Functie verificare len(quizz) se afiseaza 10 intrebari, jocul se incheie la IndexError"""
         try:
             self.quiz.question_list[self.len_lista]
         except IndexError:
